@@ -1,0 +1,133 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <link rel="stylesheet" href="Stylequiz.css">
+<style>
+body{
+  background-image: url("Design/back.png");
+}
+
+#quiz {
+  margin: 0;
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+</style>
+</head>
+
+<body>
+<div>
+  <h1 class="top">DAILY QUIZ</h1>
+  <h1 class="top2">DAY 1</h1>
+<hr class="line">
+
+<div id="quiz"></div>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
+
+
+<script type="text/javascript">
+(function(){
+  function buildQuiz(){
+
+    const output = [];
+
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        const answers = [];
+
+        for(letter in currentQuestion.answers){
+
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        output.push(
+          `<div class="question"> ${currentQuestion.question} </div>
+          <div class="answers"> ${answers.join('')} </div>`
+        );
+      }
+    );
+
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    let numCorrect = 0;
+
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      if(userAnswer === currentQuestion.correctAnswer){
+
+        numCorrect++;
+
+        answerContainers[questionNumber].style.color = 'green';
+      }
+      else{
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
+
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+    {
+      question: "1. Are u ready?",
+      answers: {
+        a: "Yeap",
+        b: "No",
+        c: "Of course"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "2. R u sure?",
+      answers: {
+        a: "Yes dim",
+        b: "No dedimgo",
+        c: "Obijaew"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "3. To4no?",
+      answers: {
+        a: "Yes! Pretty sure",
+        b: "LOL",
+        c: "Ok, no",
+        d: "Zaparil"
+      },
+      correctAnswer: "a"
+    }
+  ];
+
+  buildQuiz();
+
+
+  submitButton.addEventListener('click', showResults);
+})();
+
+</script>
+</body>
+</html>
