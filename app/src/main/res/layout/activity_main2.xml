@@ -48,7 +48,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@drawable/book" />
 
     <ImageView
@@ -61,7 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView10"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
         app:srcCompat="@drawable/gift" />
 
     <ImageView
@@ -74,7 +72,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView11"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
         app:srcCompat="@drawable/home" />
 
     <ImageView
@@ -122,12 +119,10 @@
         android:layout_marginTop="299dp"
         android:layout_marginEnd="31dp"
         android:layout_marginRight="31dp"
-        android:layout_marginBottom="321dp"
         android:background="#FFFFFF"
         android:text="Rmzn 30 day challenge \n (192/200) \n ТЕГІН"
         android:textColor="#100F0F"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView8"
         app:layout_constraintEnd_toStartOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -139,12 +134,10 @@
         android:layout_marginTop="299dp"
         android:layout_marginEnd="26dp"
         android:layout_marginRight="26dp"
-        android:layout_marginBottom="321dp"
         android:background="#FFFFFF"
         android:text="Challenge \n (157/168) \n 2990 тг"
         android:textColor="#090909"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="parent" />
